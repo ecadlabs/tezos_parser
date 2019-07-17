@@ -1,0 +1,57 @@
+{
+  "name": "@ecadlabs/tezos-parser",
+  "version": "0.0.0",
+  "description": "",
+  "keywords": [],
+  "main": "dist/parser.umd.js",
+  "module": "dist/parser.es5.js",
+  "typings": "dist/types/parser.d.ts",
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=6.0.0"
+  },
+  "scripts": {
+    "build": "tsc --module commonjs && rollup -c rollup.config.ts",
+    "test": "jest --coverage",
+    "test:watch": "jest --coverage --watch"
+  },
+  "jest": {
+    "transform": {
+      ".(ts|tsx)": "ts-jest"
+    },
+    "testEnvironment": "node",
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ]
+  },
+  "dependencies": {
+    "buffer": "^5.2.1",
+    "bs58check": "^2.1.2"
+  },
+  "devDependencies": {
+    "@types/jest": "^23.3.2",
+    "jest": "^23.6.0",
+    "jest-config": "^23.6.0",
+    "lodash.camelcase": "^4.3.0",
+    "rollup": "^0.67.0",
+    "rollup-plugin-commonjs": "^9.1.8",
+    "rollup-plugin-json": "^3.1.0",
+    "rollup-plugin-node-builtins": "^2.1.2",
+    "rollup-plugin-node-resolve": "^3.4.0",
+    "rollup-plugin-sourcemaps": "^0.4.2",
+    "rollup-plugin-typescript2": "^0.18.0",
+    "ts-jest": "^23.10.2",
+    "ts-node": "^7.0.1",
+    "typescript": "^3.0.3"
+  }
+}
