@@ -26,3 +26,79 @@ npm run example
 - [x] Right
 - [ ] Contract
 - [ ] List
+
+
+### In short
+
+It turns this:
+
+```json
+{
+  prim: 'storage',
+  args: [
+    {
+      prim: 'pair',
+      args: [
+        {
+          prim: 'big_map',
+          args: [
+            { prim: 'address' },
+            {
+              prim: 'pair',
+              args: [
+                { prim: 'nat', annots: ['%balance'] },
+                {
+                  prim: 'map',
+                  args: [{ prim: 'address' }, { prim: 'nat' }],
+                  annots: ['%allowances']
+                }
+              ],
+              annots: [':account']
+            }
+          ],
+          annots: [':accounts']
+        },
+        {
+          prim: 'pair',
+          args: [
+            { prim: 'nat', annots: ['%version'] },
+            {
+              prim: 'pair',
+              args: [
+                { prim: 'nat', annots: ['%totalSupply'] },
+                {
+                  prim: 'pair',
+                  args: [
+                    { prim: 'string', annots: ['%name'] },
+                    {
+                      prim: 'pair',
+                      args: [
+                        { prim: 'string', annots: ['%symbol'] },
+                        { prim: 'address', annots: ['%owner'] }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      annots: [':storage']
+    }
+  ]
+}          
+```
+
+Into:
+
+```json
+{ 
+  accounts: {},
+  version: '1',
+  totalSupply: '1000',
+  name: 'Token B',
+  symbol: 'B',
+  owner: 'tz1ccqAEwfPgeoipnXtjAv1iucrpQv3DFmmS' 
+}
+```
