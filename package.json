@@ -19,6 +19,7 @@
   },
   "scripts": {
     "build": "tsc --module commonjs && rollup -c rollup.config.ts",
+    "example": "cd example && ts-node example.ts",
     "test": "jest --coverage",
     "test:watch": "jest --coverage --watch"
   },
@@ -40,6 +41,7 @@
   },
   "devDependencies": {
     "@types/jest": "^23.3.2",
+    "@types/node": "^12.6.8",
     "jest": "^23.6.0",
     "jest-config": "^23.6.0",
     "lodash.camelcase": "^4.3.0",

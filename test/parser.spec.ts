@@ -6,17 +6,17 @@ import {
   bigMapDiff,
   params,
   txParams
-} from './data/sample1';
+} from '../data/sample1';
 
 import {
   storage as storage2,
   rpcContractResponse as rpcContractResponse2
-} from './data/sample2';
+} from '../data/sample2';
 
 import {
   storage as storage3,
   rpcContractResponse as rpcContractResponse3
-} from './data/sample3';
+} from '../data/sample3';
 
 describe('Schema test', () => {
   it('Should extract schema properly', () => {

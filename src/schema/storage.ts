@@ -11,6 +11,10 @@ export class Schema {
   private root: Token;
   private bigMap?: BigMapToken;
 
+  static fromRPCResponse(val) {
+    return new Schema(val.script.code.find(x => x.prim === 'storage')!.args[0]);
+  }
+
   constructor(val) {
     this.root = createToken(val, 0);
 
