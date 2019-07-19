@@ -28,7 +28,11 @@ export class AddressToken extends Token {
     return AddressToken.prim;
   }
 
-  public ToKey({ bytes }) {
+  public ToKey({ bytes, string }) {
+    if (string) {
+      return string;
+    }
+
     return encodePubKey(bytes);
   }
 }

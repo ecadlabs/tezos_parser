@@ -17,6 +17,7 @@ import { OrToken } from './or';
 import { ContractToken } from './contract';
 
 import { ListToken } from './list';
+import { MutezToken } from './mutez';
 
 export const tokens = [
   PairToken,
@@ -28,5 +29,6 @@ export const tokens = [
   BoolToken,
   OrToken,
   ContractToken,
-  ListToken
+  ListToken,
+  MutezToken
 ];
