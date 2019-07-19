@@ -1,5 +1,5 @@
 import { Token, TokenFactory } from './token';
-import { b58decode } from '../encoding';
+import { b58decode, encodePubKey } from '../encoding';
 
 export class AddressToken extends Token {
   static prim = 'address';
@@ -26,5 +26,9 @@ export class AddressToken extends Token {
 
   public ExtractSchema() {
     return AddressToken.prim;
+  }
+
+  public ToKey({ bytes }) {
+    return encodePubKey(bytes);
   }
 }

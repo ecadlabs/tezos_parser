@@ -18,4 +18,8 @@ export class StringToken extends Token {
   public ExtractSchema() {
     return StringToken.prim;
   }
+
+  public ToKey({ string }) {
+    return string;
+  }
 }

@@ -8,6 +8,11 @@ import {
   txParams
 } from './data/sample1';
 
+import {
+  storage as storage2,
+  rpcContractResponse as rpcContractResponse2
+} from './data/sample2';
+
 describe('Schema test', () => {
   it('Should extract schema properly', () => {
     const schema = new Schema(storage);
@@ -39,6 +44,26 @@ describe('Schema test', () => {
       symbol: 'B',
       totalSupply: '1000',
       version: '1'
+    });
+  });
+
+  it('Should parse storage with map that have string as key properly', () => {
+    const schema = new Schema(storage2);
+    const s = schema.Execute(rpcContractResponse2.script.storage);
+    expect(s).toEqual({
+      '0': {},
+      '1': {
+        admin: 'tz1M9CMEtsXm3QxA7FmMU2Qh7xzsuGXVbcDr',
+        metaData: {
+          By: 'https://SmartPy.io',
+          Help: 'Use Build to define a new game board and Play to make moves',
+          'Play at':
+            'https://smartpy.io/demo/explore.html?address=KT1UvfyLytrt71jh63YV4Yex5SmbNXpWHxtg',
+          'SmartPy Template':
+            'https://smartpy.io/demo/index.html?template=tictactoeFactory.py'
+        }
+      },
+      paused: 'False'
     });
   });
 
