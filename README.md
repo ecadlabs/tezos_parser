@@ -30,63 +30,41 @@ npm run example
 
 ### In short
 
-It turns this:
+It convert this:
 
 ```
 {
-  prim: 'storage',
-  args: [
-    {
-      prim: 'pair',
-      args: [
-        {
-          prim: 'big_map',
-          args: [
-            { prim: 'address' },
-            {
-              prim: 'pair',
-              args: [
-                { prim: 'nat', annots: ['%balance'] },
-                {
-                  prim: 'map',
-                  args: [{ prim: 'address' }, { prim: 'nat' }],
-                  annots: ['%allowances']
-                }
-              ],
-              annots: [':account']
-            }
-          ],
-          annots: [':accounts']
-        },
-        {
-          prim: 'pair',
-          args: [
-            { prim: 'nat', annots: ['%version'] },
-            {
-              prim: 'pair',
-              args: [
-                { prim: 'nat', annots: ['%totalSupply'] },
-                {
-                  prim: 'pair',
-                  args: [
-                    { prim: 'string', annots: ['%name'] },
-                    {
-                      prim: 'pair',
-                      args: [
-                        { prim: 'string', annots: ['%symbol'] },
-                        { prim: 'address', annots: ['%owner'] }
-                      ]
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        }
-      ],
-      annots: [':storage']
-    }
-  ]
+  "storage": {
+    "prim": "Pair",
+    "args": [
+      [],
+      {
+        "prim": "Pair",
+        "args": [
+          { "int": "1" },
+          {
+            "prim": "Pair",
+            "args": [
+              { "int": "1000" },
+              {
+                "prim": "Pair",
+                "args": [
+                  { "string": "Token B" },
+                  {
+                    "prim": "Pair",
+                    "args": [
+                      { "string": "B" },
+                      { "string": "tz1ccqAEwfPgeoipnXtjAv1iucrpQv3DFmmS" }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
 }          
 ```
 
