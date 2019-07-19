@@ -32,7 +32,7 @@ npm run example
 
 It turns this:
 
-```json
+```
 {
   prim: 'storage',
   args: [
@@ -92,7 +92,7 @@ It turns this:
 
 Into:
 
-```json
+```
 { 
   accounts: {},
   version: '1',
