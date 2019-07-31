@@ -18,6 +18,17 @@ import {
   rpcContractResponse as rpcContractResponse3
 } from '../data/sample3';
 
+import {
+  storage as storage4,
+  rpcContractResponse as rpcContractResponse4,
+  bigMapValue
+} from '../data/sample4';
+
+import {
+  storage as storage5,
+  rpcContractResponse as rpcContractResponse5
+} from '../data/sample5';
+
 describe('Schema test', () => {
   it('Should extract schema properly', () => {
     const schema = new Schema(storage);
@@ -187,6 +198,52 @@ describe('Schema test', () => {
         '1': 'tz1fPjyo55HwUAkd1xcL5vo6DGzJrkxAMpiD',
         '2': '60'
       }
+    });
+  });
+
+  describe('Sample4', () => {
+    it('Should encode key properly', () => {
+      const schema = new Schema(storage4);
+      const encoded = schema.EncodeBigMapKey('AZEAZEJAZEJ');
+      expect(encoded).toEqual({
+        key: {
+          string: 'AZEAZEJAZEJ'
+        },
+        type: {
+          prim: 'string'
+        }
+      });
+    });
+
+    it('Should parse storage properly', () => {
+      const schema = new Schema(storage4);
+      const storage = schema.Execute(rpcContractResponse4.script.storage);
+      expect(storage).toEqual({
+        '0': {},
+        '1': 'tz1W8qq2VPJcbXkAMxG8zwXCbtwbDPMfTRZd'
+      });
+    });
+
+    it('Should parse big map value properly', () => {
+      const schema = new Schema(storage4);
+      const value = schema.ExecuteOnBigMapValue(bigMapValue);
+      expect(value).toEqual({
+        clients: [],
+        userRecord: ['1234567891', '123456', '123456']
+      });
+    });
+  });
+
+  describe('Sample5', () => {
+    it('Should parse storage properly', () => {
+      const schema = new Schema(storage5);
+      const storage = schema.Execute(rpcContractResponse5.script.storage);
+      expect(storage).toEqual({
+        '0': {},
+        totalSupply: '1000',
+        approver: 'tz1g3oS1UPgWFFpxrc2pEn4sgV3ky1Z6Qaz2',
+        centralBank: 'tz1g3oS1UPgWFFpxrc2pEn4sgV3ky1Z6Qaz2'
+      });
     });
   });
 });

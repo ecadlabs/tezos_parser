@@ -1,7 +1,7 @@
-import { Token, TokenFactory } from './token';
+import { Token, TokenFactory, ComparableToken } from './token';
 
-export class NatToken extends Token {
-  static prim = 'nat';
+export class UnitToken extends Token {
+  static prim = 'unit';
 
   constructor(
     protected val: { prim: string; args: any[]; annots: any[] },
@@ -12,10 +12,10 @@ export class NatToken extends Token {
   }
 
   public Execute(val): { [key: string]: any } {
-    return val.int;
+    return null as any;
   }
 
   public ExtractSchema() {
-    return NatToken.prim;
+    return UnitToken.prim;
   }
 }

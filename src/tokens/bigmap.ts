@@ -1,4 +1,4 @@
-import { Token, TokenFactory } from './token';
+import { Token, TokenFactory, ComparableToken } from './token';
 import { encodePubKey } from '../encoding';
 
 export class BigMapToken extends Token {
@@ -15,8 +15,11 @@ export class BigMapToken extends Token {
     return this.createToken(this.val.args![1], 0);
   }
 
-  get KeySchema() {
-    return this.createToken(this.val.args[0], 0);
+  get KeySchema(): ComparableToken {
+    return (this.createToken(
+      this.val.args[0],
+      0
+    ) as unknown) as ComparableToken;
   }
 
   public ExtractSchema() {

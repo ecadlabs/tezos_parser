@@ -1,6 +1,6 @@
-import { Token, TokenFactory } from './token';
+import { Token, TokenFactory, ComparableToken } from '../token';
 
-export class MutezToken extends Token {
+export class MutezToken extends Token implements ComparableToken {
   static prim = 'mutez';
 
   constructor(
@@ -17,5 +17,12 @@ export class MutezToken extends Token {
 
   public ExtractSchema() {
     return MutezToken.prim;
+  }
+
+  public ToBigMapKey(val: string) {
+    return {
+      key: { int: val },
+      type: { prim: MutezToken.prim }
+    };
   }
 }

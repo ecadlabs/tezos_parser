@@ -12,7 +12,10 @@ export class ListToken extends Token {
   }
 
   public Execute(val) {
-    return '';
+    const schema = this.createToken(this.val.args[0], 0);
+    return val.reduce((prev, current) => {
+      return [...prev, schema.Execute(current)];
+    }, []);
   }
 
   public ExtractSchema() {

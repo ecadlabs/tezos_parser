@@ -1,5 +1,14 @@
 export type TokenFactory = (val, idx: number) => Token;
 
+export interface ComparableToken extends Token {
+  ToBigMapKey(
+    val: string
+  ): {
+    key: { [key: string]: string };
+    type: { prim: string };
+  };
+}
+
 export abstract class Token {
   constructor(
     protected val: { prim: string; args: any[]; annots: any[] },

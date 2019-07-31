@@ -1,10 +1,10 @@
-import { Token } from '../tokens/token';
+import { Token, ComparableToken } from '../tokens/token';
 
 import { BigMapToken } from '../tokens/bigmap';
 
 import { createToken } from '../tokens/createToken';
 
-import { AddressToken } from '../tokens/address';
+import { AddressToken } from '../tokens/comparable/address';
 import { RpcTransaction } from './model';
 
 export class Schema {
@@ -48,7 +48,7 @@ export class Schema {
       throw new Error('No big map schema');
     }
 
-    return (this.bigMap.KeySchema as AddressToken).ToBigMapKey(key);
+    return this.bigMap.KeySchema.ToBigMapKey(key);
   }
 
   ExtractSchema() {

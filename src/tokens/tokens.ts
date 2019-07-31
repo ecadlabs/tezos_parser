@@ -1,23 +1,28 @@
 import { PairToken } from './pair';
 
-import { NatToken } from './nat';
+import { NatToken } from './comparable/nat';
 
-import { StringToken } from './string';
+import { StringToken } from './comparable/string';
 
 import { BigMapToken } from './bigmap';
 
-import { AddressToken } from './address';
+import { AddressToken } from './comparable/address';
 
 import { MapToken } from './map';
 
-import { BoolToken } from './bool';
+import { BoolToken } from './comparable/bool';
 
 import { OrToken } from './or';
 
 import { ContractToken } from './contract';
 
 import { ListToken } from './list';
-import { MutezToken } from './mutez';
+import { MutezToken } from './comparable/mutez';
+import { BytesToken } from './comparable/bytes';
+import { OptionToken } from './option';
+import { TimestampToken } from './comparable/timestamp';
+import { IntToken } from './comparable/int';
+import { UnitToken } from './unit';
 
 export const tokens = [
   PairToken,
@@ -30,5 +35,10 @@ export const tokens = [
   OrToken,
   ContractToken,
   ListToken,
-  MutezToken
+  MutezToken,
+  BytesToken,
+  OptionToken,
+  TimestampToken,
+  IntToken,
+  UnitToken
 ];

@@ -1,7 +1,7 @@
-import { Token, TokenFactory } from './token';
-import { b58decode, encodePubKey } from '../encoding';
+import { Token, TokenFactory, ComparableToken } from '../token';
+import { b58decode, encodePubKey } from '../../encoding';
 
-export class AddressToken extends Token {
+export class AddressToken extends Token implements ComparableToken {
   static prim = 'address';
 
   constructor(

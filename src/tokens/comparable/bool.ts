@@ -1,4 +1,4 @@
-import { Token, TokenFactory } from './token';
+import { Token, TokenFactory } from '../token';
 
 export class BoolToken extends Token {
   static prim = 'bool';
